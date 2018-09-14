@@ -1,0 +1,35 @@
+<p>
+  prestations-interface works!
+</p>
+
+
+<app-tab [headers]='headers'>
+  <ng-container *ngFor='let presta of collection;index as i'>
+    <app-prestation
+    [presta]='presta'
+    [index]='i'
+    (Out)='update($event)'>
+    </app-prestation>
+  </ng-container>
+
+</app-tab>
+<!--
+<table   class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">client</th>
+        <th scope="col">taxe</th>
+        <th scope="col">action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of collection; index as i ">
+      <app-prestation [presta]='item' [index]='i'>
+
+      </app-prestation>
+      </tr>
+      </tbody>
+      </table>
+-->
+

@@ -1,0 +1,28 @@
+<th scope="row">{{presta.id || "id non défini"}}</th>
+<td>{{presta.client}}</td>
+<td>{{presta.date_debut | date:'shortDate'}}</td>
+<td>{{(presta.date_fin | date:'shortDate') || 'en cours'}}</td>
+<td>{{presta.tjm | currency:'EUR'}}</td>
+<td>{{presta.nb_jours}}</td>
+<td>{{presta.taxe}}</td>
+<td>{{presta | total | currency:'EUR'}}</td>
+<td>{{presta | total:true | currency:'EUR'}}</td>
+<td [appState]="presta.state">
+  <select (change)='update($event, "state")'>
+      <option [value]="presta.state">  {{presta.state}}</option>
+      <ng-container  *ngFor='let option of stateOptions'>
+          <option [value]="option" *ngIf="option !== presta.state" > {{option}}</option>
+      </ng-container>
+    </select>
+</td>
+
+<td>
+    <select (change)='update($event, "type")'>
+        <option [value]="presta.type">  {{presta.type}}</option>
+        <ng-container  *ngFor='let option of typeOptions'>
+            <option [value]="option" *ngIf="option !== presta.type" > {{option}}</option>
+        </ng-container>
+      </select>
+</td>
+<td>🆗 - {{index}}</td>
+

@@ -1,0 +1,22 @@
+<p>
+  pagenotfound-interface works!
+</p>
+
+<!--
+  <p *ngFor="let item of posts">{{item.title}}</p>
+
+<p *ngFor="let item of (posts$ | async)">{{item.title}}</p>
+-->
+
+<ng-container *ngFor="let tab of (postcommente$ | async)">
+    <app-tab [headers]="commonHeaders">
+        <div style="display: table-row;"  *ngFor="let item of tab">
+
+            <td>{{item.id}}</td>
+            <td>{{item.body}}</td>
+        </div>
+
+    </app-tab>
+
+
+</ng-container>

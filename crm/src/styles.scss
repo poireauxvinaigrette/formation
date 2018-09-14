@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'variables';
+
+
+.router-link-active {
+  background-color: red;
+}
+
+.state-confirme{
+  background-color: green;
+ }
+ .state-annule{
+  background-color: red;
+ }
+ .state-option{
+  background-color: blue;
+ }
+ .state-encaisse{
+  background-color: violet;
+ }

@@ -1,0 +1,53 @@
+<div class='container'>
+
+
+<form [formGroup]="form" (ngSubmit)='register()'>
+  <div class="form-group">
+    <label>ID</label>
+    <input type="text" class='form-control' formControlName="id" />
+    <div class="alert alert-danger" *ngIf="isError('id')"> Id invalide</div>
+  </div>
+  <div class="form-group">
+      <label>CLIENT</label>
+      <input type="text" class='form-control' formControlName="client" />
+  </div>
+  <div class="form-group">
+      <label>Date Début</label>
+      <input type="text" class='form-control' formControlName="date_debut" />
+  </div>
+  <div class="form-group">
+      <label>Date Fin</label>
+      <input type="date" class='form-control' formControlName="date_fin" />
+  </div>
+  <div class="form-group">
+      <label>TJM</label>
+      <input type="text" class='form-control' formControlName="tjm" />
+      <div class="alert
+      alert-danger" *ngIf="isError('tjm')"> tjm >= 100</div>
+  </div>
+  <div class="form-group">
+      <label>Taxe</label>
+      <input type="text" class='form-control' formControlName="taxe" />
+  </div>
+  <div class="form-group">
+      <label>Nb jours</label>
+      <input type="number" class='form-control' formControlName="nb_jours" />
+      <div class="alert alert-danger" *ngIf="isError('nb_jours')"> 5 <= nbjour <= 200 </div>
+  </div>
+
+  <div class="form-group">
+      <label>type</label>
+      <select class='form-control' formControlName="type">
+        <option *ngFor='let type of typeOptions' [value]="type">{{type}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+        <label>state</label>
+        <select class='form-control' formControlName="state">
+          <option *ngFor='let type of stateOptions' [value]="type">{{type}}</option>
+        </select>
+      </div>
+  <button [disabled]='form.invalid' class='btn btn-primary'>
+    Submit</button>
+</form>
+</div>
